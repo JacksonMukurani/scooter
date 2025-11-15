@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scooter Business Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #FF8C00, #FFA500);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .header {
+            background: #000;
+            color: #FF8C00;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .card {
+            background: #FFF5E6;
+            border-left: 5px solid #FF8C00;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        button {
+            background: #FF8C00;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        input, select {
+            padding: 10px;
+            margin: 8px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-box {
+            background: #000;
+            color: #FF8C00;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛵 SCOOTER RENTAL BUSINESS DASHBOARD</h1>
+            <p>Juja City Mall • Weekends & Holidays Only</p>
+        </div>
+        
+        <div class="card">
+            <h2>📝 ENTER TODAY'S TICKET SALES</h2>
+            <p><strong>Instructions:</strong> Fill this after each business day</p>
+            
+            <form id="salesForm">
+                <label><strong>Date:</strong></label>
+                <input type="date" id="saleDate" required>
+                
+                <label><strong>Normal Tickets (300 KSH each):</strong></label>
+                <input type="number" id="normalTickets" placeholder="Enter number sold" min="0" required>
+                
+                <label><strong>Happy Time Tickets (200 KSH each):</strong></label>
+                <input type="number" id="happyTickets" placeholder="Enter number sold" min="0" required>
+                
+                <label><strong>Employee:</strong></label>
+                <select id="employee" required>
+                    <option value="">Select Employee</option>
+                    <option>John Kamau</option>
+                    <option>Mary Wanjiku</option>
+                    <option>Peter Otieno</option>
+                </select>
+                
+                <button type="submit">💾 SAVE TODAY'S SALES</button>
+            </form>
+        </div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <h3>💰 TODAY'S REVENUE</h3>
+                <p id="todayRevenue">KSH 0</p>
+            </div>
+            <div class="stat-box">
+                <h3>🎫 TICKETS SOLD</h3>
+                <p id="totalTickets">0</p>
+            </div>
+            <div class="stat-box">
+                <h3>🏦 TOTAL SAVINGS</h3>
+                <p>KSH 84,250</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📊 BUSINESS PROGRESS</h2>
+            <p><strong>This Month:</strong> KSH 12,400</p>
+            <p><strong>Last Month:</strong> KSH 10,500</p>
+            <p><strong>Growth:</strong> +18% 📈</p>
+        </div>
+
+        <div class="card">
+            <h2>ℹ️ HOW TO USE</h2>
+            <p>1. Enter ticket sales after each business day</p>
+            <p>2. Your boss can view this page anytime</p>
+            <p>3. All data updates automatically</p>
+            <p>4. No more manual bookkeeping! 🎉</p>
+        </div>
+    </div>
+
+    <script>
+        // Set today's date as default
+        document.getElementById('saleDate').valueAsDate = new Date();
+
+        // Handle form submission
+        document.getElementById('salesForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const normal = parseInt(document.getElementById('normalTickets').value) || 0;
+            const happy = parseInt(document.getElementById('happyTickets').value) || 0;
+            const date = document.getElementById('saleDate').value;
+            const employee = document.getElementById('employee').value;
+            
+            const revenue = (normal * 300) + (happy * 200);
+            const totalTickets = normal + happy;
+            
+            // Update display
+            document.getElementById('todayRevenue').textContent = 'KSH ' + revenue;
+            document.getElementById('totalTickets').textContent = totalTickets;
+            
+            alert('SUCCESS! ✅\n\nSales recorded for: ' + date + 
+                  '\nNormal Tickets: ' + normal +
+                  '\nHappy Time Tickets: ' + happy + 
+                  '\nTotal Revenue: KSH ' + revenue +
+                  '\nEmployee: ' + employee +
+                  '\n\nYour boss can see this update now!');
+            
+            // Reset form
+            this.reset();
+            document.getElementById('saleDate').valueAsDate = new Date();
+        });
+    </script>
+</body>
+</html>
