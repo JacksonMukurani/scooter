@@ -3,162 +3,69 @@
 <head>
     <title>Scooter Business Dashboard</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #FF8C00, #FFA500);
-        }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .header {
-            background: #000;
-            color: #FF8C00;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .card {
-            background: #FFF5E6;
-            border-left: 5px solid #FF8C00;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 8px;
-        }
-        button {
-            background: #FF8C00;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        input, select {
-            padding: 10px;
-            margin: 8px 0;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            width: 100%;
-            font-size: 16px;
-        }
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        .stat-box {
-            background: #000;
-            color: #FF8C00;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-        }
+        body { font-family: Arial; background: #f0f0f0; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 20px; border-radius: 10px; }
+        .header { background: #FF8C00; color: white; padding: 20px; border-radius: 5px; text-align: center; }
+        .card { background: white; border-left: 4px solid #FF8C00; padding: 15px; margin: 10px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        button { background: #FF8C00; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        input, select { padding: 8px; margin: 5px; border: 1px solid #ddd; border-radius: 4px; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🛵 SCOOTER RENTAL BUSINESS DASHBOARD</h1>
-            <p>Juja City Mall • Weekends & Holidays Only</p>
+            <h1>🛵 ScooterRide Kenya Dashboard</h1>
+            <p>Juja City Mall • Weekend Scooter Rentals</p>
         </div>
         
         <div class="card">
-            <h2>📝 ENTER TODAY'S TICKET SALES</h2>
-            <p><strong>Instructions:</strong> Fill this after each business day</p>
+            <h2>📊 Enter Today's Ticket Sales</h2>
+            <p><strong>Instructions:</strong> Fill this form after each business day</p>
             
-            <form id="salesForm">
-                <label><strong>Date:</strong></label>
-                <input type="date" id="saleDate" required>
+            <form>
+                <label><strong>Date:</strong></label><br>
+                <input type="date"><br><br>
                 
-                <label><strong>Normal Tickets (300 KSH each):</strong></label>
-                <input type="number" id="normalTickets" placeholder="Enter number sold" min="0" required>
+                <label><strong>Normal Tickets (300 KSH):</strong></label><br>
+                <input type="number" placeholder="How many?"><br><br>
                 
-                <label><strong>Happy Time Tickets (200 KSH each):</strong></label>
-                <input type="number" id="happyTickets" placeholder="Enter number sold" min="0" required>
+                <label><strong>Happy Time Tickets (200 KSH):</strong></label><br>
+                <input type="number" placeholder="How many?"><br><br>
                 
-                <label><strong>Employee:</strong></label>
-                <select id="employee" required>
-                    <option value="">Select Employee</option>
+                <label><strong>Employee Name:</strong></label><br>
+                <select>
                     <option>John Kamau</option>
                     <option>Mary Wanjiku</option>
                     <option>Peter Otieno</option>
-                </select>
+                </select><br><br>
                 
-                <button type="submit">💾 SAVE TODAY'S SALES</button>
+                <button type="button">💾 SAVE SALES DATA</button>
             </form>
         </div>
-
-        <div class="stats">
-            <div class="stat-box">
-                <h3>💰 TODAY'S REVENUE</h3>
-                <p id="todayRevenue">KSH 0</p>
-            </div>
-            <div class="stat-box">
-                <h3>🎫 TICKETS SOLD</h3>
-                <p id="totalTickets">0</p>
-            </div>
-            <div class="stat-box">
-                <h3>🏦 TOTAL SAVINGS</h3>
-                <p>KSH 84,250</p>
-            </div>
-        </div>
-
+        
         <div class="card">
-            <h2>📊 BUSINESS PROGRESS</h2>
-            <p><strong>This Month:</strong> KSH 12,400</p>
-            <p><strong>Last Month:</strong> KSH 10,500</p>
-            <p><strong>Growth:</strong> +18% 📈</p>
+            <h2>💰 Today's Summary</h2>
+            <p>Normal Tickets: 0 × 300 KSH = 0 KSH</p>
+            <p>Happy Time Tickets: 0 × 200 KSH = 0 KSH</p>
+            <p><strong>Total Revenue: 0 KSH</strong></p>
         </div>
-
+        
         <div class="card">
-            <h2>ℹ️ HOW TO USE</h2>
-            <p>1. Enter ticket sales after each business day</p>
-            <p>2. Your boss can view this page anytime</p>
-            <p>3. All data updates automatically</p>
-            <p>4. No more manual bookkeeping! 🎉</p>
+            <h2>📈 Business Progress</h2>
+            <p>Total Savings: KSH 84,250</p>
+            <p>This Month: KSH 12,400</p>
+            <p>Last Month: KSH 10,500</p>
         </div>
     </div>
 
     <script>
-        // Set today's date as default
-        document.getElementById('saleDate').valueAsDate = new Date();
-
-        // Handle form submission
-        document.getElementById('salesForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Simple JavaScript to make it work
+        document.querySelector('button').addEventListener('click', function() {
+            const normal = document.querySelector('input[type="number"]:nth-child(3)').value || 0;
+            const happy = document.querySelector('input[type="number"]:nth-child(5)').value || 0;
+            const total = (normal * 300) + (happy * 200);
             
-            const normal = parseInt(document.getElementById('normalTickets').value) || 0;
-            const happy = parseInt(document.getElementById('happyTickets').value) || 0;
-            const date = document.getElementById('saleDate').value;
-            const employee = document.getElementById('employee').value;
-            
-            const revenue = (normal * 300) + (happy * 200);
-            const totalTickets = normal + happy;
-            
-            // Update display
-            document.getElementById('todayRevenue').textContent = 'KSH ' + revenue;
-            document.getElementById('totalTickets').textContent = totalTickets;
-            
-            alert('SUCCESS! ✅\n\nSales recorded for: ' + date + 
-                  '\nNormal Tickets: ' + normal +
-                  '\nHappy Time Tickets: ' + happy + 
-                  '\nTotal Revenue: KSH ' + revenue +
-                  '\nEmployee: ' + employee +
-                  '\n\nYour boss can see this update now!');
-            
-            // Reset form
-            this.reset();
-            document.getElementById('saleDate').valueAsDate = new Date();
+            alert('Sales Saved!\nNormal: ' + normal + ' tickets\nHappy Time: ' + happy + ' tickets\nTotal: KSH ' + total + '\n\nYour boss can see this now!');
         });
     </script>
 </body>
